@@ -36,7 +36,9 @@ $(document).ready(function () {
             var roundedTemp = Math.floor(fTemp);
             var dataTemp = $("<p>").text("Temperature " + roundedTemp + "°F").addClass("info");
 
-            cityName.append(currentDate, weatherIcon, dataTemp)
+            var dataHumidity = $("<p>").text("Humidity: " + response.main.humidity + "%").addClass("info");
+
+            cityName.append(currentDate, weatherIcon, dataTemp, dataHumidity)
 
 
             
