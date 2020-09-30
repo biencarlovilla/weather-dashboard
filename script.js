@@ -105,6 +105,25 @@ $(document).ready(function () {
         })
 
     }
+    $(document).on("click", ".city-btn", function () {
+        JSON.parse(localStorage.getItem("cities"));
+        let citySearch = $(this).text();
+        promptSearch(citySearch);
+    });
     
+    function renderSearchList() {
+        var searchList = JSON.parse(localStorage.getItem("cities"));
+        $("#result").empty();
+        if (searchList) {
+            for (i = 0; i < searchList.length; i++) {
+                var listBtn = $("<button>").addClass("btn btn-secondary city-btn").attr('id', 'cityname_' + (i + 1)).text(searchList[i]);
+                var listElem = $("<li>").attr('class', 'list-group-item');
+                listElem.append(listBtn);
+                $("#result").append(listElem);
+            }
+    
+        }
+    
+    }
    
 })

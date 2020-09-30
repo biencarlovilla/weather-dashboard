@@ -56,6 +56,7 @@
     padding: 40px;
     flex-direction: row;
     width: auto;
+    background-color: lightskyblue;
 }
 
 .city-weather {
