@@ -32,7 +32,11 @@ $(document).ready(function () {
             var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
             var weatherIcon = $("<img>").attr("src", iconurl);
 
-            cityName.append(currentDate, weatherIcon)
+            var fTemp = (response.main.temp - 273.15) * 1.80 + 32;
+            var roundedTemp = Math.floor(fTemp);
+            var dataTemp = $("<p>").text("Temperature " + roundedTemp + "°F").addClass("info");
+
+            cityName.append(currentDate, weatherIcon, dataTemp)
 
 
             
