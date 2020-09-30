@@ -38,7 +38,9 @@ $(document).ready(function () {
 
             var dataHumidity = $("<p>").text("Humidity: " + response.main.humidity + "%").addClass("info");
 
-            cityName.append(currentDate, weatherIcon, dataTemp, dataHumidity)
+            var dataWind = $("<p>").text("Wind Speed: " + response.wind.speed).addClass("info");
+
+            cityName.append(currentDate, weatherIcon, dataTemp, dataHumidity, dataWind)
 
 
             
