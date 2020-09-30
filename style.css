@@ -1,3 +1,10 @@
 #searchBar{
     margin: 25px;
 }
+
+.cityWeather {
+    font-size: 24pt;
+    padding-left: 30px;
+    line-height: 30px;
+    padding-bottom: 50px;
+}

@@ -26,6 +26,7 @@ $(document).ready(function () {
                 console.log(cityArray);
             }
     })
+    var cityName = $(".jumbotron").addClass("cityWeather").text(citySearch);
     }
     
 })
