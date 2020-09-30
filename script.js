@@ -66,7 +66,42 @@ $(document).ready(function () {
                 cityName.append(dataUV);
                 renderSearchList();
             })
-            
+            var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latitude + "&lon=" + longitude + "&units=imperial" + APIKey;
+
+            for (var i = 1; i < 6; i++) {
+                $.ajax({
+                    url: queryURL,
+                    Method: "GET"
+                }).then(function (response) {
+                    var card = $("<div>").addClass("card-body");
+
+                    var cardInfo = $("<div>").addClass(".cardbody");
+                    var cardDate = $("<h5>").text(moment.unix(response.daily[i].dt).format("MM/DD/YYYY"));
+                    cardInfo.addClass("headline");
+
+                    var cardTemp = $("<p>").text("Temp: " + response.daily[i].temp.max + "°");
+                    cardTemp.attr("id", "#fiveDayTemp[i]");
+
+                    var cardHumidity = $("<p>").attr("id", "humDay").text("Humidity: " + JSON.stringify(response.daily[i].humidity) + "%");
+                    cardHumidity.attr("id", "#fiveHumidity[i]");
+
+                    var iconCode = response.daily[i].weather[0].icon;
+                    var iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
+                    var weatherImg = $("<img>").attr("src", iconURL);
+                    $("#testImage").attr("src", iconURL);
+
+                    card.append(cardDate);
+                    card.append(weatherImg);
+                    card.append(cardTemp);
+                    card.append(cardHumidity);
+                    cardInfo.append(card);
+                    $("#cardDay").append(cardInfo);
+                    $("#fiveDayTemp[i]").empty();
+                    $(".jumbotron").append(card);
+                })
+            }
+            $("#search").val("");
+
         })
 
     }
