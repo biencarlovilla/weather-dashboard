@@ -34,7 +34,7 @@ $(document).ready(function () {
 
             var fTemp = (response.main.temp - 273.15) * 1.80 + 32;
             var roundedTemp = Math.floor(fTemp);
-            var dataTemp = $("<p>").text("Temperature " + roundedTemp + "°F").addClass("info");
+            var dataTemp = $("<p>").text("Temperature: " + roundedTemp + "°F").addClass("info");
 
             var dataHumidity = $("<p>").text("Humidity: " + response.main.humidity + "%").addClass("info");
 
@@ -42,7 +42,18 @@ $(document).ready(function () {
 
             cityName.append(currentDate, weatherIcon, dataTemp, dataHumidity, dataWind)
 
-
+            var latitude = response.coord.lat;
+            var longitude = response.coord.lon;
+            var uvURL = "https://api.openweathermap.org/data/2.5/uvi?" + APIKey + "&lat=" + latitude + "&lon=" + longitude;
+            $.ajax({
+                url: uvURL,
+                Method: "GET"
+            }).then(function (response) {
+                let dataUV = $("<div>").addClass('info uv-index').text("UV Index: ");
+                let uvValue = $("<span class='badge id='current-uv-level'>").text(response.value);
+                dataUV.append(uvValue);
+                cityName.append(dataUV);
+            })
             
         })
 
