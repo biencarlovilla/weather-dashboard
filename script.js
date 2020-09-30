@@ -49,8 +49,8 @@ $(document).ready(function () {
                 url: uvURL,
                 Method: "GET"
             }).then(function (response) {
-                let dataUV = $("<div>").addClass('info uv-index').text("UV Index: ");
-                let uvValue = $("<span class='badge id='current-uv-level'>").text(response.value);
+                var dataUV = $("<div>").addClass('info uv-index').text("UV Index: ");
+                var uvValue = $("<span class='badge id='current-uv-level'>").text(response.value);
                 dataUV.append(uvValue);
                 cityName.append(dataUV);
             })
