@@ -25,12 +25,20 @@ $(document).ready(function () {
                 localStorage.setItem("cities", JSON.stringify(cityArray));
                 console.log(cityArray);
             }
-    })
-    var cityName = $(".jumbotron").addClass("cityWeather").text(citySearch + " | ");
-    var currentDate = moment().format("MM-DD-YYYY");
-    
+            var cityName = $(".jumbotron").addClass("cityWeather").text(citySearch + " | ");
+            var currentDate = moment().format("  MM-DD-YYYY");
 
-    cityName.append(currentDate);
+            var iconcode = response.weather[0].icon;
+            var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+            var weatherIcon = $("<img>").attr("src", iconurl);
+
+            cityName.append(currentDate, weatherIcon)
+
+
+            
+        })
+
     }
     
+   
 })
