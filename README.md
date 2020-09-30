@@ -20,6 +20,7 @@ From there I started to create function that pulls the information needed for th
 * Wind Speend
 * UV Index
 
+
 ## Built With
 * [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)

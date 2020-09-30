@@ -107,7 +107,7 @@ $(document).ready(function () {
     }
     $(document).on("click", ".city-btn", function () {
         JSON.parse(localStorage.getItem("cities"));
-        let citySearch = $(this).text();
+        var citySearch = $(this).text();
         promptSearch(citySearch);
     });
     
