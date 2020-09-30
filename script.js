@@ -26,7 +26,10 @@ $(document).ready(function () {
                 console.log(cityArray);
             }
     })
-    var cityName = $(".jumbotron").addClass("cityWeather").text(citySearch);
+    var cityName = $(".jumbotron").addClass("cityWeather").text(citySearch  );
+    var currentDate = moment().format(  "MM-DD-YYYY");
+
+    cityName.append(currentDate);
     }
     
 })
