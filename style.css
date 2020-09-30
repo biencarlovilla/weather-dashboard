@@ -17,3 +17,22 @@
     margin-bottom: 0px;
 }
 
+.safe {
+    background-color: darkgreen;
+}
+
+.moderate {
+    background-color: yellow;
+}
+
+.warning {
+    background-color: orange;
+}
+
+.very-high {
+    background-color: rgb(170, 5, 5);
+}
+
+.dangerous {
+    background-color: rgb(104, 6, 104);
+}

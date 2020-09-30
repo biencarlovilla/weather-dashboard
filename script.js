@@ -52,7 +52,19 @@ $(document).ready(function () {
                 var dataUV = $("<div>").addClass('info uv-index').text("UV Index: ");
                 var uvValue = $("<span class='badge id='current-uv-level'>").text(response.value);
                 dataUV.append(uvValue);
+                if (response.value >= 0 && response.value < 3) {
+                    $(uvValue).addClass("safe");
+                } else if (response.value >= 3 && response.value < 6) {
+                    $(uvValue).addClass("moderate");
+                } else if (response.value >= 6 && response.value < 8) {
+                    $(uvValue).addClass("warning");
+                } else if (response.value >= 8 && response.value < 11) {
+                    $(uvValue).addClass("very-high");
+                } else if (response.value >= 11) {
+                    $(uvValue).addClass("dangerous");
+                }
                 cityName.append(dataUV);
+                renderSearchList();
             })
             
         })
